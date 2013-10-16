@@ -2,7 +2,7 @@ worker_processes 3
 
 #set root app
 #ex. /usr/local/rails_apps/app/current
-app_directory = "/usr/local/rails_apps/lab/current"
+app_directory = "app_root"
 working_directory app_directory
 
 #set port numuber or sock
@@ -15,6 +15,7 @@ timeout 30
 #ex. /tmp/unicorn_app_name
 pid "/tmp/unicorn_app.pid"
 
+stderr_path "#{app_directory}/log/unicorn_production.log"
 stdout_path "#{app_directory}/log/unicorn_production.log"
 
 preload_app true
